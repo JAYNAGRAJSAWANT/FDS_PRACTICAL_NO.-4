@@ -1,0 +1,85 @@
+"""5	Write a Python program to compute following operations on String:
+a)	To display word with the longest length
+b)	To determines the frequency of occurrence of particular character in the string
+c)	To check whether given string is palindrome or not
+d)	To display index of first appearance of the substring
+e)	To count the occurrences of each word in a given string"""
+
+
+
+str = input("Enter string: ")    #code for palindrome
+is_palindrome = True
+
+for i in range(0, int(len(str)/2)):
+        if str[i] != str[len(str)-i-1]:
+            is_palindrome = False
+
+if is_palindrome:
+    print(str, "is a palindrome")
+else:
+    print(str, "is not a palindrome")
+
+
+
+str=input("enter word:-")        #code for character
+ch=input("enter caracter:-")
+j=0
+for i in range(len(str)):
+  if ch==str[i]:
+    j=j+1
+print(j)
+
+
+
+string = input("Please enter your String : ")    #To display index of first appearance of the substring
+char = input("Please enter your Character : ")
+
+flag = 0
+for i in range(len(string)):
+    if(string[i] == char):
+        flag = 1
+        break
+
+if(flag == 0):
+    print("Sorry! We haven't found the Search Character in this string ")
+else:
+    print("The first Occurrence of ", char, " is Found at Position " , i + 1)
+
+
+
+
+def word_count(str):                  #To count the occurrences of each word in a given string
+    # Create an empty dictionary
+    counts = dict()
+    words = str.split()
+
+    # Loop through each line of the file
+    for word in words:
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
+    return counts
+
+# get input from user
+string = input("Please enter sentence: ")
+
+# Print the number of occurrences of word
+print( word_count(string))
+
+
+
+
+def longestWordLength(string):  #code for palindrome
+    length = 0   
+    w = ''       
+    for word in string.split(): 
+        if(len(word) > length): 
+            length = len(word) 
+            w = word
+    return (length, w)  
+  
+string = input("Enter the string: ")
+l, w = longestWordLength(string)
+print("Longest word is ", w, " and its length is ", l)
+
